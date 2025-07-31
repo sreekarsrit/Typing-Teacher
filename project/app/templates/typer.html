@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TypeTester</title>
-    <link rel="stylesheet" href="typer.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TypeTester</title>
+  <link rel="stylesheet" href="typer.css" />
 </head>
 <body>
-    <header>Typetest</header>
-<section class="controllers">
-    <button id = "PlayPause"> Play </button>
-    <select id = "difficulty">
-        <option value="easy">EASY</option>
-        <option value="normal">NORMAL</option>
-        <option value="hard">HARD</option>
-    </select>
-    <select id = "time-up">
-        <option value="30">30</option>
-        <option value="60">60</option>
-        <option value="120">120</option>
-    </select>
-</section>
-<main>
-    <div id=" QuoteDisplay"></div>
-</main>
+  <header>
+    <h2>TypeTester</h2>
+  </header>
 
+  <section class="controls">
+    <button id="playPauseBtn"> Play</button>
 
+    <div class="time-options">
+      <button class="time">15</button>
+      <button class="time">30</button>
+      <button class="time">60</button>
+      <button class="time">120</button>
+    </div>
+  </section>
+
+  <main>
+    <div id="quoteDisplay">Loading quote...</div>
+    <textarea id="quoteInput" placeholder="type here"></textarea>
+    <div id="wpmDisplay">WPM: 0</div>
+  </main>
+
+  <section class="keyboard">
+    <!-- Placeholder for virtual keyboard -->
+    <p>[On-screen keyboard layout will go here]</p>
+  </section>
+
+  <script src="typer.js"></script>
 </body>
 </html>
