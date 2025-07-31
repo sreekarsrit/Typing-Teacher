@@ -3,19 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Typer Login</title>
-    <link rel="stylesheet" href="login.css">
+    <style>
+        body {
+            width: 100%;
+            padding: 50px;
+            margin-left: 300px;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        fieldset {
+            width: 1000px;
+            padding: 200px;
+            background-color: palegoldenrod;
+        }
+
+        #sreekar label {
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+        }
+
+        button {
+            padding: 5px;
+        }
+    </style>
 </head>
 <body>
     <header>Login here for TYPETEST!</header>
     <hr>
-    <div>
-        <label for="email">Email id:<input type="email" name="email" id ="email" placeholder="Enter Registered Email id "></label>
-        <br>
-        <label for="pass">Password:<input type="text" name="pass" id="pass" placeholder="Password"></label>
-        <br>
-        <label for="login"><button type="submit" id = "login">login</button></label>
-        <br>
-        Not registered yet? <a href="register.html">Register</a>
-    </div>
+    <fieldset>
+        <form method="POST" action="#">
+            <div id="sreekar">
+                <label for="email">Email ID:
+                    <input type="email" name="email" id="email" placeholder="Enter Registered Email ID" required>
+                </label>
+
+                <label for="pass">Password:
+                    <input type="password" name="pass" id="pass" placeholder="Password" required>
+                </label>
+
+                <button type="submit" id="login">Login</button>
+                <br><br>
+                Not registered yet? <a href="#">Register</a>
+            </div>
+        </form>
+    </fieldset>
 </body>
 </html>
