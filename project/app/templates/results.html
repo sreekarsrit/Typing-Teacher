@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeTester - Results</title>
+    <link rel="stylesheet" href="{% static 'app/css/results.css' %}" />
+</head>
+<body>
+    <div class="results-container">
+        <div class="results-header">
+            <h1>Test Results</h1>
+        </div>
+        
+        <div class="results-grid">
+            <div class="result-item">
+                <div class="result-label">WPM</div>
+                <div class="result-value" id="wpmResult">0</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Time</div>
+                <div class="result-value" id="timeResult">0.0s</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Accuracy</div>
+                <div class="result-value accuracy-value" id="accuracyResult">100%</div>
+            </div>
+            <div class="result-item">
+                <div class="result-label">Errors</div>
+                <div class="result-value errors-value" id="errorsResult">0</div>
+            </div>
+        </div>
+        
+        <div class="action-buttons">
+            <a href="{% url 'typer' %}" class="retry-btn">Try Again</a>
+            <a href="{% url 'logout' %}" class="home-btn">Logout</a>
+        </div>
+    </div>
+
+    <script>
+        // Get URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const wpm = urlParams.get('wpm') || '0';
+        const time = urlParams.get('time') || '0.0';
+        const accuracy = urlParams.get('accuracy') || '100';
+        const errors = urlParams.get('errors') || '0';
+        
+        // Update result displays
+        document.getElementById('wpmResult').textContent = wpm;
+        document.getElementById('timeResult').textContent = time + 's';
+        document.getElementById('accuracyResult').textContent = accuracy + '%';
+        document.getElementById('errorsResult').textContent = errors;
+        
+    </script>
+</body>
+</html> 

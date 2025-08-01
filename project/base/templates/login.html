@@ -1,64 +1,28 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Typer Login</title>
-    <style>
-        body {
-            width: 100%;
-            padding: 50px;
-            margin-left: 300px;
-            font-family: Arial, sans-serif;
-        }
-
-        header {
-            font-size: 24px;
-            font-weight: bold;
-        }
-
-        fieldset {
-            width: 1000px;
-            padding: 200px;
-            background-color: palegoldenrod;
-        }
-
-        #sreekar label {
-            display: block;
-            margin-bottom: 15px;
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            padding: 8px;
-            margin-top: 5px;
-        }
-
-        button {
-            padding: 5px;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeTester - Login</title>
+    <link rel="stylesheet" href="{% static 'app/css/login_register.css' %}">
 </head>
 <body>
-    <header>Login here for TYPETEST!</header>
-    <hr>
+    <div class="form-container">
+        <h2>TypeTester Login</h2>
 
-    <fieldset>
-        <form method="POST" action="#">
-            <div id="sreekar">
-                <label for="email">Email ID:
-                    <input type="email" name="email" id="email" placeholder="Enter Registered Email ID" required>
-                </label>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
 
-                <label for="pass">Password:
-                    <input type="password" name="pass" id="pass" placeholder="Password" required>
-                </label>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
 
-                <button type="submit" id="login">Login</button>
-                <br><br>
-                Not registered yet? <a href="#">Register</a>
-            </div>
+            <button type="submit">Sign In</button>
         </form>
-    </fieldset>
+        
+        Not yet Registered? <a href="{% url 'register' %}">Register</a>
+    </div>
 </body>
 </html>
