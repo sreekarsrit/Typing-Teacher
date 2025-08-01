@@ -1,18 +1,30 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>TypeTest</title>
-    <link rel="stylesheet" href="register.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TypeTester - Register</title>
+    <link rel="stylesheet" href="{% static 'app/css/login_register.css' %}">
 </head>
 <body>
-    <header><h3>welcome to Narachi TypeTest!</h3></header>
-    <fieldset>
-        <legend>Registration form</legend>
-        <label for="name">Enter username:<input type ="text" name="name" id ="name" placeholder="Username"></label><br>
-        <label for="email">Email id:<input type="email" name="email" id ="email" placeholder="Enter Registered Email id "></label><br>
-        <label for="pass">Password:<input type="text" name="pass" id="pass" placeholder="Password"></label><br>
-        <label for="login"><button type="submit" id = "login">login</button></label><br>
-    </fieldset>
+    <div class="form-container">
+        <h2>TypeTester Registration</h2>
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <label for="name">Username</label>
+            <input type="text" id="name" name="name" placeholder="Enter username" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter email" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter password" required>
+
+            <button type="submit">Register</button>
+        </form>
+        
+        Already have an account?<a href="{% url 'login' %}">Login</a>
+    </div>
 </body>
 </html>

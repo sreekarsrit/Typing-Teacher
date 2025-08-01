@@ -1,38 +1,77 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TypeTester</title>
-  <link rel="stylesheet" href="typer.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TypeTester - Speed Typing Test</title>
+    <link rel="stylesheet" href="{% static 'app/css/typer.css' %}" />
 </head>
 <body>
-  <header>
-    <h2>TypeTester</h2>
-  </header>
+    <header>
+        <div class="header-content">
+            <h2>TypeTester</h2>
+            <p>- Test your typing speed and accuracy</p>
+            <div class="stats-bar">
+                <button id="playPauseBtn" class="primary-btn start-btn">Start</button>
+                <div class="stat-item">
+                    <span class="stat-label">WPM</span>
+                    <span id="wpmDisplay" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Time</span>
+                    <span id="timeDisplay" class="stat-value">0.0s</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Accuracy</span>
+                    <span id="accuracyDisplay" class="stat-value">100%</span>
+                </div>
+                 <div class="control-group">
+                <label>Time Options:</label>
+                <div class="time-options">
+                    <button class="time">15s</button>
+                    <button class="time">30s</button>
+                    <button class="time">60s</button>
+                    <button class="time">120s</button>
+                </div>
+                 </div>
+                <a href="{% url 'logout' %}" class="logout-btn">Logout</a>
+            </div>
 
-  <section class="controls">
-    <button id="playPauseBtn"> Play</button>
+        </div>
+    </header>
 
-    <div class="time-options">
-      <button class="time">15</button>
-      <button class="time">30</button>
-      <button class="time">60</button>
-      <button class="time">120</button>
+    <div class="container">
+        <section class="controls">
+            <!-- The Start button is now in the header -->
+        </section>
+
+        <main>
+            <div class="typing-area">
+                <div id="quoteDisplay" class="quote-display">
+                    Loading quote...
+                </div>
+                <textarea 
+                    id="quoteInput" 
+                    placeholder="Start typing here..." 
+                    class="typing-input"
+                    spellcheck="false"
+                    autocomplete="off"
+                    autocorrect="off"
+                    autocapitalize="off"
+                ></textarea>
+            </div>
+        </main>
+        <section class="keyboard"></section>
+        <footer>
+            <div class="footer-content">
+                <pre>developed by
+                    saisreenivas & sreekar
+                    typing makes man typer... </pre>
+            </div>
+        </footer>
     </div>
-  </section>
 
-  <main>
-    <div id="quoteDisplay">Loading quote...</div>
-    <textarea id="quoteInput" placeholder="type here"></textarea>
-    <div id="wpmDisplay">WPM: 0</div>
-  </main>
-
-  <section class="keyboard">
-    <!-- Placeholder for virtual keyboard -->
-    <p>[On-screen keyboard layout will go here]</p>
-  </section>
-
-  <script src="typer.js"></script>
+    <script src="{% static 'app/js/typer.js' %}"></script>
 </body>
 </html>
