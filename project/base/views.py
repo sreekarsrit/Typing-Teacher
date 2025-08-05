@@ -1,7 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login as auth_login
 
 def login(request):
     if request.method == 'POST':
@@ -9,7 +8,6 @@ def login(request):
         password = request.POST.get('password')
         
         # For demo purposes, accept any email/password combination
-        # In a real application, you would authenticate against a database
         if email and password:
             # Create a simple session-based authentication
             request.session['user_email'] = email
