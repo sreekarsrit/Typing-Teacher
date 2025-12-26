@@ -1,6 +1,4 @@
-# TypeTester - Project Specialties for Interview
-
-## 🎯 Key Highlights to Discuss
+## 🎯 Key Highlights of Project
 
 ### 1. **Virtual Keyboard Visualization** ⭐
 **What makes it special:**
